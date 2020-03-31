@@ -23,8 +23,10 @@ public class ejercicios4 {
             totalSueldos += sueldo[i];
         }
 
+        System.out.println();
+
         for (int i = 0; i < 5; i++) {
-            System.out.println("\n" + "El sueldo del operario número " + (i + 1) + " es " + sueldo[i] + ".");
+            System.out.println("El sueldo del operario número " + (i + 1) + " es " + sueldo[i] + ".");
         }
 
         System.out.println("\n" + "La suma de todos los sueldos es " + totalSueldos);
