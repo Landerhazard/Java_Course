@@ -8,12 +8,11 @@ public class ejercicios5 {
     public static void main(String[] args) {
         // ejercicio1();
         // ejercicio2();
-        // ejercicio3();
+        ejercicio3();
         // ejercicio4();
         // ejercicio5();
         // ejercicio6();
         // ejercicio7();
-         ejercicio8();
     }
 
     private static void ejercicio1() {
@@ -104,62 +103,74 @@ public class ejercicios5 {
     }
 
     private static void ejercicio3() {
-        /**
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1 - Crear Matriz de M x N.");
-        System.out.println("2 - Rellenar datos de la matriz.");
-        System.out.println("3 - Saber el tamaño de la matriz.");
-        System.out.println("4 - Copiar parte del primer array en otro.");
-        System.out.println("5 - Clonar el array y muesta el clonado.");
-        System.out.println("6 - Ordenar array.");
-        System.out.println("7 - Buscar elemento.");
+        System.out.println("1 - Crear Matriz de M x N." + "\n*************************************");
 
-        int inputOption = sc.nextInt();
+        // Crea la matriz
+        System.out.println("Introduce el número de filas:");
+        int filas = sc.nextInt();
+        System.out.println("Introduce el número de columnas:");
+        int columnas = sc.nextInt();
+        int[][] matriz = new int[filas][columnas];
+        System.out.println("Se ha creado una matriz de " + filas + " filas y " + columnas + " columnas."
+                + "\n*************************************");
 
-        switch (inputOption) {
-            
-            case 1:
-            System.out.println("Introduce el número de filas:");
-            int filas = sc.nextInt();
-            System.out.println("Introduce el número de columnas:");
-            int columnas = sc.nextInt();
-                int[][] matriz = new int[filas][columnas];
-                System.out.println("Se ha creado una matriz de " + filas + " filas y " + columnas + " columnas.");
-                break;
-            case 2:
-                for (int i = 0; i < matriz.length; i++){
-                    for (int j = 0; j < matriz[0].length; j++){
-                        System.out.println("Introduce el valor de la posición " + i + ", " + j + ":");
-                        matriz[i][j] = sc.nextInt();
-                        System.out.println("Se han rellenado de la matriz.");
-                    }
-                }
-                break;
-            case 3:
-                System.out.println("La matriz es de " + matriz.length + " filas y " + matriz[0].length + " columnas.");
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;        
-            default:
-            System.out.println("Opcion no valida, selecciona un numero entre el 1 y el 7");
-                break;
+        System.out.println("2 - Rellenar datos de la matriz." + "\n*************************************");
+
+        // Rellena la matriz
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.println("Introduce el valor de la posición " + i + ", " + j + ":");
+                matriz[i][j] = sc.nextInt();
+            }
         }
+        System.out.println("Se han rellenado de la matriz." + "\n*************************************");
+
+        // Devuelve el tamaño de la matriz
+        System.out.println("3 - Saber el tamaño de la matriz." + "\n*************************************");
+        System.out.println("La matriz es de " + matriz.length + " filas y " + matriz[0].length + " columnas."
+                + "\n*************************************");
+
+        // Clona el array inicial y muestra el clonado
+        System.out.println("4 - Clonar el array y muesta el clonado." + "\n*************************************");
+        int[][] matriz2 = matriz.clone();
+        System.out.println("El array clonado es " + Arrays.deepToString(matriz2));
+
+        // Copia parte del primer array en otro
+        System.out.println("5 - Copiar parte del primer array en otro." + "\n*************************************");
+        int inicio = 0, ultimo = 0;
+        System.out.println("introduce el primer valor");
+        inicio = sc.nextInt();
+        System.out.println("introduce el ultimo valor");
+        ultimo = sc.nextInt();
+        int[][] matriz3 = Arrays.copyOfRange(matriz2, inicio, ultimo);
+        System.out.println("El array copiado es " + Arrays.deepToString(matriz3));
+
+        // Ordena el array
+        System.out.println("6 - Ordenar array." + "\n*************************************");
+        Arrays.sort(matriz);
+        System.out.println("El array ordenado es " + Arrays.deepToString(matriz));
+
+        // Busca un elemento
+        System.out.println("7 - Buscar elemento." + "\n*************************************");
+        System.out.println("introduce el valor que quieres buscar:");
+        int valor = sc.nextInt();
+        for (int i = 0; i < matriz.length;i++){
+            for (int j = 0; j < matriz[i].length; j++){
+                if (matriz[i][j] == valor){
+                    System.out.println("El primer valor " + valor + " se encuentra en la posicion " + i + ", " + j +".");
+                }
+            }
+        }
+
         sc.close();
-         */
     }
 
-    private static void ejercicio4(){
+    private static void ejercicio4() {
         Scanner sc = new Scanner(System.in);
-        String[] nombre = new String [3];
-        for (int i = 0; i < 3; i++){
+        String[] nombre = new String[3];
+        for (int i = 0; i < 3; i++) {
             switch (i) {
                 case 0:
                     System.out.println("Introduce el nombre");
@@ -173,15 +184,16 @@ public class ejercicios5 {
                 default:
                     break;
             }
-            nombre [i] = sc.nextLine();
+            nombre[i] = sc.nextLine();
         }
         sc.close();
 
         String outNombre = nombre[0] + " " + nombre[1] + " " + nombre[2];
-        System.out.println("El nombre es " + outNombre + " y el nombre con los apellidos tienen una longitud de " + (outNombre.length() - 2));
+        System.out.println("El nombre es " + outNombre + " y el nombre con los apellidos tienen una longitud de "
+                + (outNombre.length() - 2));
     }
 
-    private static void ejercicio5(){
+    private static void ejercicio5() {
         String cad = "La vaca de la payasa campa a nada más que a la nada.";
         String cad2 = cad;
         char car = 'a';
@@ -191,7 +203,7 @@ public class ejercicios5 {
         while (indice >= 0) {
             indice = cad2.indexOf(car);
             cad2 = cad2.substring(indice + 1);
-            if (indice >= 0){
+            if (indice >= 0) {
                 contador++;
             } else {
                 break;
@@ -201,13 +213,13 @@ public class ejercicios5 {
 
     }
 
-    private static void ejercicio6(){
+    private static void ejercicio6() {
         String cadena = "AuedDeSoESsefGrfEsdsfieDadaoeSAfsEiO";
         String cadenaOut = cadena;
         int longitud = cadenaOut.length();
-        for (int i = 0; i < longitud; i++){
+        for (int i = 0; i < longitud; i++) {
             char eval = cadenaOut.charAt(i);
-            if (eval == 'a' || eval == 'e' || eval == 'i' || eval == 'o' || eval == 'u'){
+            if (eval == 'a' || eval == 'e' || eval == 'i' || eval == 'o' || eval == 'u') {
                 eval = 'o';
                 cadenaOut = cadenaOut.substring(0, i) + eval + cadenaOut.substring(i + 1, cadenaOut.length());
             }
@@ -221,9 +233,5 @@ public class ejercicios5 {
         int longitud2 = longitud / 2;
         String cadenaOut = cadena.substring(0, longitud2);
         System.out.println(cadenaOut);
-    }
-
-    private static void ejercicio8() {
-        
     }
 }
