@@ -7,13 +7,13 @@ public class ejercicios5 {
 
     public static void main(String[] args) {
         // ejercicio1();
-        ejercicio2();
+        // ejercicio2();
         // ejercicio3();
         // ejercicio4();
-        // ejercicio5);
+        // ejercicio5();
         // ejercicio6();
         // ejercicio7();
-        // ejercicio8();
+         ejercicio8();
     }
 
     private static void ejercicio1() {
@@ -53,20 +53,14 @@ public class ejercicios5 {
         }
 
         // Evalúa el trabajador que más horas ha trabajado
-        trabajadorMasHorasTrabajadas = trabajadores[0];
-        for (int i = 1; i < numEmpleados; i++) {
-            if (horasTotales[i] > horasTotales[Arrays.binarySearch(trabajadores, trabajadorMasHorasTrabajadas)]) {
-                trabajadorMasHorasTrabajadas = trabajadores[i];
-            }
-        }
+        Arrays.sort(horasTotales);
+        trabajadorMasHorasTrabajadas = trabajadores[Arrays.binarySearch(trabajadores,
+                horasTotales[horasTotales.length - 1])];
 
         // Evalúa el trabajador que ha trabajado menos días
-        trabajadorMenosDiasTrabajados = trabajadores[0];
-        for (int i = 1; i < numEmpleados; i++) {
-            if (diasTrabajados[i] > diasTrabajados[Arrays.binarySearch(trabajadores, trabajadorMenosDiasTrabajados)]) {
-                trabajadorMenosDiasTrabajados = trabajadores[i];
-            }
-        }
+        Arrays.sort(diasTrabajados);
+        trabajadorMenosDiasTrabajados = trabajadores[Arrays.binarySearch(trabajadores, diasTrabajados[0])];
+
         sc.close();
 
         System.out.println("El trabajador que más horas ha trabajado ha sido " + trabajadorMasHorasTrabajadas
@@ -107,5 +101,129 @@ public class ejercicios5 {
         }
 
         sc.close();
+    }
+
+    private static void ejercicio3() {
+        /**
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1 - Crear Matriz de M x N.");
+        System.out.println("2 - Rellenar datos de la matriz.");
+        System.out.println("3 - Saber el tamaño de la matriz.");
+        System.out.println("4 - Copiar parte del primer array en otro.");
+        System.out.println("5 - Clonar el array y muesta el clonado.");
+        System.out.println("6 - Ordenar array.");
+        System.out.println("7 - Buscar elemento.");
+
+        int inputOption = sc.nextInt();
+
+        switch (inputOption) {
+            
+            case 1:
+            System.out.println("Introduce el número de filas:");
+            int filas = sc.nextInt();
+            System.out.println("Introduce el número de columnas:");
+            int columnas = sc.nextInt();
+                int[][] matriz = new int[filas][columnas];
+                System.out.println("Se ha creado una matriz de " + filas + " filas y " + columnas + " columnas.");
+                break;
+            case 2:
+                for (int i = 0; i < matriz.length; i++){
+                    for (int j = 0; j < matriz[0].length; j++){
+                        System.out.println("Introduce el valor de la posición " + i + ", " + j + ":");
+                        matriz[i][j] = sc.nextInt();
+                        System.out.println("Se han rellenado de la matriz.");
+                    }
+                }
+                break;
+            case 3:
+                System.out.println("La matriz es de " + matriz.length + " filas y " + matriz[0].length + " columnas.");
+                break;
+            case 4:
+                
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;        
+            default:
+            System.out.println("Opcion no valida, selecciona un numero entre el 1 y el 7");
+                break;
+        }
+        sc.close();
+         */
+    }
+
+    private static void ejercicio4(){
+        Scanner sc = new Scanner(System.in);
+        String[] nombre = new String [3];
+        for (int i = 0; i < 3; i++){
+            switch (i) {
+                case 0:
+                    System.out.println("Introduce el nombre");
+                    break;
+                case 1:
+                    System.out.println("Introduce el primer apellido");
+                    break;
+                case 2:
+                    System.out.println("Introduce el segundo apellido");
+                    break;
+                default:
+                    break;
+            }
+            nombre [i] = sc.nextLine();
+        }
+        sc.close();
+
+        String outNombre = nombre[0] + " " + nombre[1] + " " + nombre[2];
+        System.out.println("El nombre es " + outNombre + " y el nombre con los apellidos tienen una longitud de " + (outNombre.length() - 2));
+    }
+
+    private static void ejercicio5(){
+        String cad = "La vaca de la payasa campa a nada más que a la nada.";
+        String cad2 = cad;
+        char car = 'a';
+        int contador = 0;
+        int indice = 0;
+
+        while (indice >= 0) {
+            indice = cad2.indexOf(car);
+            cad2 = cad2.substring(indice + 1);
+            if (indice >= 0){
+                contador++;
+            } else {
+                break;
+            }
+        }
+        System.out.println("La cadena " + cad + " tiene " + contador + " " + car + ".");
+
+    }
+
+    private static void ejercicio6(){
+        String cadena = "AuedDeSoESsefGrfEsdsfieDadaoeSAfsEiO";
+        String cadenaOut = cadena;
+        int longitud = cadenaOut.length();
+        for (int i = 0; i < longitud; i++){
+            char eval = cadenaOut.charAt(i);
+            if (eval == 'a' || eval == 'e' || eval == 'i' || eval == 'o' || eval == 'u'){
+                eval = 'o';
+                cadenaOut = cadenaOut.substring(0, i) + eval + cadenaOut.substring(i + 1, cadenaOut.length());
+            }
+        }
+        System.out.println(cadenaOut);
+    }
+
+    private static void ejercicio7() {
+        String cadena = "Hola, me llamo Pepito";
+        int longitud = cadena.length();
+        int longitud2 = longitud / 2;
+        String cadenaOut = cadena.substring(0, longitud2);
+        System.out.println(cadenaOut);
+    }
+
+    private static void ejercicio8() {
+        
     }
 }
