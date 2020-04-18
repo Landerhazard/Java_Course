@@ -2,7 +2,7 @@ package ejercicios7;
 
 import java.util.Scanner;
 
-public class ejercicioPersonas {
+public class ejerPersonas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Persona[] personas = new Persona[4];
