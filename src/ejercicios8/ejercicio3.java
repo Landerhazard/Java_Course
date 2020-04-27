@@ -1,3 +1,5 @@
+package ejercicios8;
+
 import java.util.HashSet;
 
 public class ejercicio3 {
